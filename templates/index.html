@@ -1,0 +1,205 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Libreous</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
+<body>
+<nav class="menu">
+
+    <div class="wrapper-row">
+        <div class="menu__logo"><a href="">Libreous</a></div>
+        <div class="menu__misc">
+            <div class="menu__misc__searchLabel">
+                <form action="{% url 'search_result' %}" method="get">
+                    <input type="text" placeholder="Search by book name or its author" name="q" id="searchLabel">
+                    <button type="submit" name="searchBtn" id="searchBtn">Search</button>
+                </form>
+            </div>
+            <div class="menu__misc__links">
+                {% if user.is_authenticated %}
+                    {{ user.username }}
+                    <a href="{% url 'logout' %}">logout</a>
+                    {% else %}
+                    <a href="/login">Log In</a>
+                {% endif %}
+{#                <i class="far fa-user-circle" id="profileBtn"></i>#}
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+        <div class="mobile_menu"><i class="fa fa-bars" aria-hidden="true" id="mob_menu"></i></div>
+    </div>
+</nav>
+<div class="wrapper-col">
+    <div class="offer">
+        <div class="offer__text">
+            <div class="helper">
+                <p class="text__title">Subscription 9$ per/month</p>
+                <div class="text__description">
+                    <p>Read books Online, Offline</p>
+                    <p>EVERYWHERE</p>
+                    <p>for only 9$ per/month</p>
+                </div>
+                <button type="button">More</button>
+            </div>
+        </div>
+        <div class="offer__img">
+            <img src="{% static 'img/ad_img.png' %}" alt="">
+        </div>
+    </div>
+
+
+        <div class="book_shelf">
+            <p class="text__title">Top rating!</p>
+            <p class="text__description">Mostly interesting books rated by users!</p>
+            <div class="showcase">
+                <div class="slider swiper-container">
+                    <div class="swiper-wrapper">
+                        {% for book in books_rating %}
+                        <div class="swiper-slide">
+                            <div class="slider__info" style="display: flex; flex-direction: column; justify-content: space-evenly">
+                                <div class="slider__book_img" style="background-image: url({{ book.book_img }})">
+
+                                </div>
+                                <a href="{% url 'post-detail' book.id %}" class="book_name">{{ book.book_name }}</a>
+                                <p class="book_author"> {{ book.book_author }} </p>
+                                <p class="book_name">{{ book.book_stars }} out of 10 rating</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-scrollbar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="book_shelf">
+            <p class="text__title">Books by date published</p>
+            <p class="text__description">Mostly interesting books all the time!</p>
+            <div class="showcase">
+                <div class="slider swiper-container">
+                    <div class="swiper-wrapper">
+                        {% for book in books_date %}
+                        <div class="swiper-slide">
+                            <div class="slider__info">
+                                <div class="slider__book_img" style="background-image: url({{ book.book_img }})">
+
+                                </div>
+                                <a href="{% url 'post-detail' book.id %}"> {{ book.book_name }} </a>
+                                <p class="book_author"> {{ book.book_author }} </p>
+                                <p class="book_name">{{ book.book_stars }} out of 10 rating</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-scrollbar"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+{#    <div class="book_shelf">#}
+{#        <p class="text__title">Top month!</p>#}
+{#        <p class="text__description">Mostly interesting books this month</p>#}
+{#        <div class="showcase">#}
+{#            <div class="slider swiper-container">#}
+{#                <div class="swiper-wrapper">#}
+{##}
+{#                </div>#}
+{#                <div class="swiper-button-prev"></div>#}
+{#                <div class="swiper-button-next"></div>#}
+{#                <div class="swiper-scrollbar"></div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="book_shelf">#}
+{#        <p class="text__title">New books!</p>#}
+{#        <p class="text__description">Read newest books</p>#}
+{#        <div class="showcase">#}
+{#            <div class="slider swiper-container">#}
+{#                <div class="swiper-wrapper">#}
+{##}
+{#                </div>#}
+{#                <div class="swiper-button-prev"></div>#}
+{#                <div class="swiper-button-next"></div>#}
+{#                <div class="swiper-scrollbar"></div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="book_shelf">#}
+{#        <p class="text__title">Top month!</p>#}
+{#        <p class="text__description">Mostly interesting books this month</p>#}
+{#        <div class="showcase">#}
+{#            <div class="slider swiper-container">#}
+{#                <div class="swiper-wrapper">#}
+{##}
+{#                </div>#}
+{#                <div class="swiper-button-prev"></div>#}
+{#                <div class="swiper-button-next"></div>#}
+{#                <div class="swiper-scrollbar"></div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+</div>
+<div class="libreous_app">
+    <div class="text__title"><h3>Read anytime, everywhere with our Libreous App!</h3></div>
+    <img src="{% static 'img/mobile_app.png' %}" alt="">
+</div>
+<footer>
+    <div class="text__block">
+        <div class="text__title">О проекте Libreous</div>
+        <div class="text__description">
+            <p>О проекте</p>
+            <p>Правообладатели</p>
+            <p>Информация</p>
+            <p>Сотрудничество</p>
+        </div>
+    </div>
+    <div class="text__block">
+        <div class="text__title">Покупка продуктов</div>
+        <div class="text__description">
+            <p>Купить книгу</p>
+            <p>Подарить книгу</p>
+            <p>Как оплатить</p>
+            <p>Помощь</p>
+        </div>
+    </div>
+    <div class="text__block">
+        <div class="text__title">Скачать приложение</div>
+        <div class="text__description">
+            <p>Android</p>
+            <p>iOS</p>
+            <p>О приложении</p>
+            <p>Системные требования</p>
+        </div>
+    </div>
+    <div class="text__block">
+        <div class="text__title">Следите за нами!</div>
+        <div class="text__description">
+            <p>Instagram</p>
+            <p>Telegram</p>
+            <p>VK</p>
+            <p>Facebook</p>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

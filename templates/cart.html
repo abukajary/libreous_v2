@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static ' css/style_cart.css '%}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Libreous</a>
+    </nav>
+    <a href="index.html">< back shopping</a>
+    <div class="item">
+        <div class="item__photo"></div>
+        <div class="item__info">
+            <div class="item__info__left">
+                <div class="item__info__left__name">
+                    <h5>Clean Code</h5>
+                    <p>A Handbook of Agile software Craftsmanship</p>
+                </div>
+                <div class="item__info__left__author">
+                    Robert C.Martin
+                </div>
+            </div>
+            <div class="item__info__right">
+                <p>Quantity</p>
+                <div class="item__info__right__quantity">
+                    <p id="item_minus">-</p>
+                    <p id="item_quantity">0</p>
+                    <p id="item_plus">+</p>
+                </div>
+            </div>
+        </div>
+        <div class="item__detail">
+            <div class="item__detail_del" id="item_delete"><i class="fa fa-trash" aria-hidden="true"></i></div>
+            <div class="item__detail__price">
+                Price: <p id="item_price">0$</p>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="item__photo"></div>
+        <div class="item__info">
+            <div class="item__info__left">
+                <div class="item__info__left__name">
+                    <h5>Clean Code</h5>
+                    <p>A Handbook of Agile software Craftsmanship</p>
+                </div>
+                <div class="item__info__left__author">
+                    Robert C.Martin
+                </div>
+            </div>
+            <div class="item__info__right">
+                <p>Quantity</p>
+                <div class="item__info__right__quantity">
+                    <p id="item_minus">-</p>
+                    <p id="item_quantity">0</p>
+                    <p id="item_plus">+</p>
+                </div>
+            </div>
+        </div>
+        <div class="item__detail">
+            <div class="item__detail_del" id="item_delete"><i class="fa fa-trash" aria-hidden="true"></i></div>
+            <div class="item__detail__price">
+                Price: <p id="item_price">0$</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment">
+        <div class="payment__promoCode">
+            <p>Promo code</p>
+            <input type="text" placeholder="Example: ISPMGO" />
+        </div>
+        <div class="payment__info">
+            <div class="payment__info__subtotal">
+                <p>Subtotal</p>
+                <p id="totalForPay">0$</p>
+            </div>
+            <p id="paymentInfoUnderSubtotal">After shipping you can refund the book in 3 days</p>
+            <div class="payment__info__btn" id="#paymentBtn">Checkout</div>
+            <div class="payment__info__options">
+                <p>Secured payment wit Abukve</p>
+                <div class="visa"></div>
+                <div class="mastercard"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

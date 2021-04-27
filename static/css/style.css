@@ -1,0 +1,328 @@
+* {padding: 0;margin: 0;
+    font-family: Roboto, sans-serif;}
+a {color: inherit; text-decoration: none}
+body {
+    background-color: #CC9999;
+}
+.wrapper-row {
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+.wrapper-col {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.menu {
+    width: 100%;
+    height: 69px;
+    background: #330000;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    color: #FFFFFF;
+}
+.menu__logo {
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.mobile_menu {
+    display: none;
+}
+.menu__misc {
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.menu__misc__searchLabel{
+    width: 80%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.menu__misc__searchLabel form {
+    width: 100%;
+    display: flex;
+}
+.menu__misc__links {
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+}
+.menu__misc__searchLabel form input{
+    width: 80%;
+    height: 31px;
+    border: none;
+    padding: 10px;
+    background: #F4F4F4;
+    border-radius: 3px;
+}
+.menu__misc__searchLabel form button {
+    width: 77px;
+    height: 31px;
+    background: #990033;
+    color: white;
+    border: none;
+}
+
+/*MENU*/
+
+.offer {
+    width: 100%;
+    height: 347px;
+    background: #F4E9E9;
+    display: flex;
+}
+.offer__text {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.helper {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.text__title {
+    font-family: Roboto, 'fantasy';
+    font-style: normal;
+    font-weight: 500;
+    font-size: calc(15px + 8 * ((100vw - 320px) / (1280 - 320)));
+    /*line-height: calc(11px + 10 * ((100vw - 320px) / (1280 - 320)));*/
+    padding: 2px 10px;
+    margin: 2px 10px;
+}
+.text__description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: calc(8px + 8 * ((100vw - 320px) / (1280 - 320)));
+    line-height: calc(11px + 10 * ((100vw - 320px) / (1280 - 320)));
+    padding: 2px 10px;
+    margin: 2px 10px;
+}
+.helper button {
+    width: calc(80px + 87 * ((100vw - 320px) / (1280 - 320)));
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    font-size: 20px;
+    line-height: 23px;
+    color: white;
+
+    background: #F55757;
+    border-radius: 8px;
+
+    /*padding: 2px 10px;*/
+    margin: 2px 10px;
+}
+.offer__img {
+    width: 60%;
+    margin: auto 0;
+}
+.offer__img img{
+    max-width: 100%;
+    /*background-image: url("../img/ad_img.png");*/
+    /*background-size: auto;*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center;*/
+}
+.book_shelf {
+    width:100%;
+    height: 400px;
+    margin: 15px 0 0 0;
+    background: #F4E9E9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.showcase {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+}
+.swiper-slide {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider__book_img {
+    width: 121px;
+    height: 176px;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    color: black;
+    border-radius: 10px;
+}
+.book_name {
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow-wrap: break-word;
+    margin: 0px;
+    text-align: inherit;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 600;
+}
+.book_author {
+    max-width: 126px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    line-height: 22px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #990033;
+}
+
+footer {
+    background: #330000;
+    width: 100%;
+    height: 300px;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.text__block {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-wrap: avoid;
+}
+.text__block .text__description p {
+    color: #990033;
+    text-align: left;
+}
+.text__block .text__description p:hover {
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    background: #990033;
+    cursor: pointer;
+}
+.libreous_app {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.libreous_app .text__title h3 {
+    color: white;
+    padding: 5px;
+    margin: 15px 0;
+    background: #330000;
+}
+.libreous_app img {
+    max-width: 100%;
+    /*width: 855px;*/
+    /*height: 516px;*/
+    /*background-image: url("../img/mobile_app.png");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: revert;*/
+}
+.books {
+    background: #F4E9E9;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+}
+.books_left {
+    width: 40%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.books_left img{
+}
+.books_right {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.books_right__info {
+    display: flex;
+    flex-direction: row;
+}
+.book_right__spec {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+}
+.book_right__spec .price {
+    color: #990033;
+    font-size: 26px;
+}
+.book_right__spec button{
+    width: 150px;
+    height: 50px;
+    background: #990033;
+    color: white;
+    border: none;
+}
+.book_right__desc {
+    padding: 20px 0;
+}
+.book_right__desc pre{
+      overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+@media screen and (max-width: 700px) {
+    .text__block {
+        width: 50%;
+    }
+    .mobile_menu {
+        width: 70%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .menu__misc {
+        display: none;
+    }
+    .offer__text, .offer__img {
+        width: 100%;
+    }
+    .helper {
+        width: 70%;
+    }
+    .offer {
+        flex-direction: column;
+        align-items: center;
+    }
+}
