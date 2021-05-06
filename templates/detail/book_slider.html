@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+{% block book_shelf %}
+    {% block book_shelf__title %} TEST1 {% endblock %}
+    {% block book_shelf__description %} test1 {% endblock %}
+    {% block book_shelf__loop %}
+        {% for foo in books_date %}
+            {% block book_shelf__loop__imgstyle %}
+                <img src="{{ foo.book_img }}" alt="{{ foo.book_name }}">
+                {% block book_shelf__loop__name %}
+                    <a href="{% url 'post-detail' foo.id %}">{{ foo.book_name }}</a>
+                {% endblock %}
+                {% block book_shelf__loop__author %}
+                    {{ foo.book_author }}
+                {% endblock %}
+                {% block book_shelf__loop__rating %}
+                    {{ foo.book_stars }}
+                {% endblock %}
+            {% endblock %}
+        {% endfor %}
+    {% endblock %}
+{% endblock %}
+
+

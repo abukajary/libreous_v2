@@ -24,7 +24,7 @@
             <div class="menu__misc__links">
                 {% if user.is_authenticated %}
                     {{ user.username }}
-                    <a href="{% url 'logout' %}">logout</a>
+                    <a href="{% url 'logout' %}" id="logout">logout</a>
                     {% else %}
                     <a href="/login">Log In</a>
                 {% endif %}

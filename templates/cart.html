@@ -15,6 +15,51 @@
         <a href="index.html">Libreous</a>
     </nav>
     <a href="index.html">< back shopping</a>
+
+    {% for foo in cart %}
+        {% with product=item.product%}
+            <div class="item">
+                <div class="item__photo" style="{{ product.book_img }}"></div>
+                <div class="item__info">
+                    <div class="item__info__left">
+                        <div class="item__info__left__name">
+                            <h5>{{ product.book_name }}</h5>
+                            <p>A Handbook of Agile software Craftsmanship</p>
+                        </div>
+                        <div class="item__info__left__author">
+                            {{ product.book_author }}
+                        </div>
+                    </div>
+                    <div class="item__info__right">
+                        <p>Quantity</p>
+                        <div class="item__info__right__quantity">
+                            <p id="item_minus">-</p>
+                            <p id="item_quantity">0</p>
+                            <p id="item_plus">+</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item__detail">
+                    <div class="item__detail_del" id="item_delete"><i class="fa fa-trash" aria-hidden="true"></i></div>
+                    <div class="item__detail__price">
+                        Price: <p id="item_price">0$</p>
+                    </div>
+                </div>
+            </div>
+        {% endwith %}
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="item">
         <div class="item__photo"></div>
         <div class="item__info">

@@ -1,50 +1,19 @@
+{% extends 'base.html' %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Libreous</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-</head>
-<body>
-<nav class="menu">
-
-    <div class="wrapper-row">
-        <div class="menu__logo"><a href="/">Libreous</a></div>
-        <div class="menu__misc">
-            <div class="menu__misc__searchLabel">
-                <form action="{% url 'search_result' %}" method="get">
-                    <input type="text" placeholder="Search by book name or its author" name="q" id="searchLabel">
-                    <button type="submit" name="searchBtn" id="searchBtn">Search</button>
-                </form>
-            </div>
-            <div class="menu__misc__links">
-                {% if user.is_authenticated %}
-                    {{ user.username }}
-                    <a href="{% url 'logout' %}">logout</a>
-                    {% else %}
-                    <a href="/login">Log In</a>
-                {% endif %}
-{#                <i class="far fa-user-circle" id="profileBtn"></i>#}
-                <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-            </div>
-        </div>
-        <div class="mobile_menu"><i class="fa fa-bars" aria-hidden="true" id="mob_menu"></i></div>
-    </div>
-</nav>
-<div class="wrapper-col">
+{% block title %}
+    Поиск: {{ q }}
+{% endblock %}
+{% block info1 %}
     <div class="wrapper-col" style="background: #523232; color: white">
         <div class="text__title">Поиск по запросу: </div>
         <p class="text__description">{{ q }}</p>
     </div>
-        {% for b in books %}
-    <div class="books">
+    {% for b in books %}
+        <div class="books">
             <div class="books_left">
                 <img src="{{ b.book_img }}" alt="">
             </div>
+
             <div class="books_right">
                 <p class="text__title">Книга: {{ b.book_name }}</p>
                 <div class="books_right__info">
@@ -61,59 +30,6 @@
                     <pre>{{ b.book_description }}</pre>
                 </div>
             </div>
-    </div>
-        {% endfor %}
-
-</div>
-<div class="libreous_app">
-    <div class="text__title"><h3>Read anytime, everywhere with our Libreous App!</h3></div>
-    <img src="{% static 'img/mobile_app.png' %}" alt="">
-</div>
-<footer>
-    <div class="text__block">
-        <div class="text__title">О проекте Libreous</div>
-        <div class="text__description">
-            <p>О проекте</p>
-            <p>Правообладатели</p>
-            <p>Информация</p>
-            <p>Сотрудничество</p>
         </div>
-    </div>
-    <div class="text__block">
-        <div class="text__title">Покупка продуктов</div>
-        <div class="text__description">
-            <p>Купить книгу</p>
-            <p>Подарить книгу</p>
-            <p>Как оплатить</p>
-            <p>Помощь</p>
-        </div>
-    </div>
-    <div class="text__block">
-        <div class="text__title">Скачать приложение</div>
-        <div class="text__description">
-            <p>Android</p>
-            <p>iOS</p>
-            <p>О приложении</p>
-            <p>Системные требования</p>
-        </div>
-    </div>
-    <div class="text__block">
-        <div class="text__title">Следите за нами!</div>
-        <div class="text__description">
-            <p>Instagram</p>
-            <p>Telegram</p>
-            <p>VK</p>
-            <p>Facebook</p>
-        </div>
-    </div>
-</footer>
-
-
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
-
-<script src="{% static 'js/main.js' %}"></script>
-
-</body>
-</html>
+    {% endfor %}
+{% endblock %}
