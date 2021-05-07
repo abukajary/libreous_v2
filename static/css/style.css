@@ -156,6 +156,7 @@ body {
 }
 .swiper-slide {
     font-size: 18px;
+    max-height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,12 +172,13 @@ body {
     border-radius: 10px;
 }
 .book_name {
+    max-width: 126px;
     overflow: hidden;
     display: -webkit-box;
     text-overflow: ellipsis;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    overflow-wrap: break-word;
+    white-space: nowrap;
     margin: 0px;
     text-align: inherit;
     font-size: 14px;
@@ -301,7 +303,11 @@ button:hover {
   white-space: -o-pre-wrap;
   word-wrap: break-word;
 }
-
+@media screen and (max-width: 1540px) {
+    #logout {
+        display: none;
+    }
+}
 @media screen and (max-width: 700px) {
     .text__block {
         width: 50%;

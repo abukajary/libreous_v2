@@ -37,6 +37,7 @@ class Books(models.Model):
     book_stars = models.IntegerField(blank=True, null=True)
     book_price = models.BigIntegerField(blank=True, null=True)
     book_description = models.TextField(blank=True, null=True)
+    book_quantity = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False

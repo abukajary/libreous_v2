@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 import main.views as alo
@@ -23,10 +23,12 @@ import Auth.views as auth
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('cart/', include('Cart.urls', namespace='cart')),
     path('', alo.emp),
     path('register', auth.signup),
     path('login', auth.log_in),
     path('logout', auth.logout_request, name="logout"),
     path('search/', alo.go_search, name='search_result'),
-    path('book/<int:pk>/', alo.book_detail, name='post-detail')
+    path('book/<int:pk>/', alo.book_detail, name='post-detail'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

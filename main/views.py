@@ -1,15 +1,21 @@
+
+
 from django.db.models import Count, Q
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
+from django.template import Context, loader
 from django.views.generic import DetailView
 
 from main.models import Employees, Books
 
 
 def emp(request):
-    return render(request, 'index.html', {'books_rating': Books.objects.all().order_by('-book_stars'),
-                                          'books_date': Books.objects.all().order_by('book_date')})
+    top_rated_books = Books.objects.all().order_by('-book_stars')
+    latest_date_published_books = Books.objects.all().order_by('book_date')
+
+    return render(request, 'index.html', {'rating': top_rated_books, 'date': latest_date_published_books})
 
 
 def go_search(request):
